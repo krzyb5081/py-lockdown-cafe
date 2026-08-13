@@ -1,8 +1,12 @@
-class NotVaccinatedError(Exception):
+class VaccineError(Exception):
+    pass
+    
+
+class NotVaccinatedError(VaccineError):
     pass
 
 
-class OutdatedVaccineError(Exception):
+class OutdatedVaccineError(VaccineError):
     pass
 
 
