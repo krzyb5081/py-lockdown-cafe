@@ -13,7 +13,7 @@ class Cafe:
 
     def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
-            raise NotVaccinatedError("Visitor is not vaccinated")
+            raise NotVaccinatedError(f"{visitor.get("name", "Visitor")} is not vaccinated")
 
         vaccine = visitor["vaccine"]
 
@@ -24,9 +24,9 @@ class Cafe:
                 exp_date = date.fromisoformat(exp_date)
 
             if exp_date < date.today():
-                raise OutdatedVaccineError("Visitor has outdated vaccination")
+                raise OutdatedVaccineError(f"{visitor.get("name", "Visitor")} has outdated vaccination")
 
         if not visitor.get("wearing_a_mask", False):
-            raise NotWearingMaskError("Visitor is not wearing a mask")
+            raise NotWearingMaskError(f"{visitor.get("name", "Visitor)} is not wearing a mask")
 
         return f"Welcome to {self.name}"
