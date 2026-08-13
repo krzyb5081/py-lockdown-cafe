@@ -8,7 +8,7 @@ from app.errors import (
 
 
 class Cafe:
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> str:
@@ -19,7 +19,7 @@ class Cafe:
 
         if "expiration_date" in vaccine:
             exp_date = vaccine["expiration_date"]
-            
+
             if isinstance(exp_date, str):
                 exp_date = date.fromisoformat(exp_date)
 
